@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CurrencyMap from "./currency-map";
 
 function App() {
+  const currency = [
+    {
+      symbol: "bitcoin",
+      code: "BTC",
+      days: "15",
+    },
+    {
+      symbol: "ripple",
+      code: "XRP",
+      days: "5",
+    },
+    {
+      symbol: "litecoin",
+      code: "LTC",
+      days: "15",
+    },
+    {
+      symbol: "ethereum",
+      code: "ETH",
+      days: "15",
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table>
+        <tbody>
+          {currency.map((curr) => {
+            return (
+              <CurrencyMap
+                key={curr.code}
+                symbol={curr.symbol}
+                code={curr.code}
+                days={curr.days}
+              />
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
